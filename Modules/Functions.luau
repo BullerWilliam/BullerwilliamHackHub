@@ -1,4 +1,4 @@
-local plr = game.Players.LocalPlayer
+local plr = game.Players.LocalPlayer -- updated
 local char = plr.Character or plr.CharacterAdded:Wait()
 plr.CharacterAdded:Connect(function(newchar)
 	char = newchar
