@@ -1,7 +1,9 @@
 function FireClick(clickdetector:ClickDetector)
+    print("FIRE - click")
     fireclickdetector(clickdetector)
 end
 function FireProx(proximityprompt:ProximityPrompt)
+    print("FIRE - prox")
     fireproximityprompt(proximityprompt)
 end
 local plrs=game:GetService("Players")
