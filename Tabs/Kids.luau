@@ -30,9 +30,9 @@ local Button = Kid_Tab:Button({
 					if table.find(Kid_Selectedkids, character:GetAttribute("KidId")) then
 						print("Kid - "..character.Name.." - selected")
 						local head:Part = character:FindFirstChild("Head")
-						local attachment = head:FindFirstChild("ProximityAttachment")
+						local attachment:Attachment = head:FindFirstChild("ProximityAttachment")
 						local prox:ProximityPrompt = attachment:FindFirstChild("ProximityInteraction")
-						FireProx(prox)
+						FireProx(prox, attachment.CFrame)
 					end
 				end
 			end
