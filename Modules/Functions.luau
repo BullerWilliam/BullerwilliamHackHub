@@ -16,6 +16,7 @@ local function trigger(prox:ProximityPrompt, proxpos)
 			end
 	end)
     print("before cam")
+    local beforetype = game.Workspace.CurrentCamera.CameraType
 	game.Workspace.CurrentCamera.CameraType = Enum.CameraType.Scriptable
     if not char then
         print("no char")
@@ -37,7 +38,7 @@ local function trigger(prox:ProximityPrompt, proxpos)
     	prox:InputHoldEnd()
     	task.wait(0.1)
         char:PivotTo(pos)
-        game.Workspace.CurrentCamera.CameraType = Enum.CameraType.Custom
+        game.Workspace.CurrentCamera.CameraType = beforetype
     	task.cancel(settings2)
     end
 end
