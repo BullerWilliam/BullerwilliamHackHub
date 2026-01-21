@@ -26,7 +26,9 @@ local Button = Kid_Tab:Button({
 		for _, character in ipairs(game.Workspace:WaitForChild("Characters"):GetChildren()) do
 			if character:GetAttribute("NPCType") == "Lost Child" then
 				if character:GetAttribute("Lost") then
+					print("Kid - "..character.Name.." - found")
 					if table.find(Kid_Selectedkids, character:GetAttribute("KidId")) then
+						print("Kid - "..character.Name.." - selected")
 						local head:Part = character:FindFirstChild("Head")
 						local attachment = head:FindFirstChild("ProximityAttachment")
 						local prox:ProximityPrompt = attachment:FindFirstChild("ProximityInteraction")
