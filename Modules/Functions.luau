@@ -23,21 +23,28 @@ local function trigger(prox:ProximityPrompt, proxpos)
     else
         print("char")
     end
+    print("-2")
     if char then
         if not char.PrimaryPart then
             print("No primary")
             char.PrimaryPart = char.HumanoidRootPart
         end
         local pos = char:GetPivot()
+        print("-1")
     	char:PivotTo(CFrame.new(proxpos + Vector3.new(0, 2, 0)))
+        print("1")
     	task.wait(0.1)
     	game.Workspace.CurrentCamera.CFrame = CFrame.lookAt(game.Workspace.CurrentCamera.CFrame.Position, parentpos)
-	    task.wait(0.1)
+	    print("2")
+        task.wait(0.1)
     	prox:InputHoldBegin()
+        print("3")
     	task.wait(0.1)
     	prox:InputHoldEnd()
+        print("4")
     	task.wait(0.1)
         char:PivotTo(pos)
+        print("5")
         game.Workspace.CurrentCamera.CameraType = beforetype
     	task.cancel(settings2)
     end
