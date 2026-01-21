@@ -1,8 +1,8 @@
-function FireClick(clickdetector:ClickDetector)
+FireClick = function(clickdetector:ClickDetector)
     print("FIRE - click")
     fireclickdetector(clickdetector)
 end
-function FireProx(proximityprompt:ProximityPrompt)
+FireProx = function(proximityprompt:ProximityPrompt)
     print("FIRE - prox")
     fireproximityprompt(proximityprompt)
 end
