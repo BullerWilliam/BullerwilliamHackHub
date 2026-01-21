@@ -1,7 +1,5 @@
 local function trigger(prox:ProximityPrompt, proxpos)
-	local parentpos = proxpos
-	if parentpos then
-		local settings2 = task.spawn(function()
+	local settings2 = task.spawn(function()
 			while true do
 				prox.HoldDuration = 0
 				prox.MaxActivationDistance = 1000000
@@ -10,21 +8,20 @@ local function trigger(prox:ProximityPrompt, proxpos)
 				prox.Enabled = true
 				task.wait()
 			end
-		end)
-		game.Workspace.CurrentCamera.CameraType = Enum.CameraType.Scriptable
-		local pos = char:GetPivot()
-		char:PivotTo(CFrame.new(parentpos + Vector3.new(0, 2, 0)))
-		task.wait(0.1)
-		game.Workspace.CurrentCamera.CFrame = CFrame.lookAt(game.Workspace.CurrentCamera.CFrame.Position, parentpos)
-		task.wait(0.1)
-		prox:InputHoldBegin()
-		task.wait(0.1)
-		prox:InputHoldEnd()
-		task.wait(0.1)
-		char:PivotTo(pos)
-		game.Workspace.CurrentCamera.CameraType = Enum.CameraType.Custom
-		task.cancel(settings2)
-	end
+	end)
+	game.Workspace.CurrentCamera.CameraType = Enum.CameraType.Scriptable
+	local pos = char:GetPivot()
+	char:PivotTo(CFrame.new(proxpos + Vector3.new(0, 2, 0)))
+	task.wait(0.1)
+	game.Workspace.CurrentCamera.CFrame = CFrame.lookAt(game.Workspace.CurrentCamera.CFrame.Position, parentpos)
+	task.wait(0.1)
+	prox:InputHoldBegin()
+	task.wait(0.1)
+	prox:InputHoldEnd()
+	task.wait(0.1)
+	char:PivotTo(pos)
+	game.Workspace.CurrentCamera.CameraType = Enum.CameraType.Custom
+	task.cancel(settings2)
 end
 
 FireClick = function(clickdetector:ClickDetector, clickpos)
