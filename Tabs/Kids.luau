@@ -32,7 +32,7 @@ local Button = Kid_Tab:Button({
 						local head:Part = character:FindFirstChild("Head")
 						local attachment:Attachment = head:FindFirstChild("ProximityAttachment")
 						local prox:ProximityPrompt = attachment:FindFirstChild("ProximityInteraction")
-						FireProx(prox, attachment.CFrame)
+						FireProx(prox, head.CFrame)
 					end
 				end
 			end
