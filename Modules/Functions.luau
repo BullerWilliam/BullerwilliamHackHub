@@ -1,9 +1,11 @@
 FireClick = function(clickdetector:ClickDetector)
     print("FIRE - click")
+    clickdetector.MaxActivationDistance = 10000000
     fireclickdetector(clickdetector)
 end
 FireProx = function(proximityprompt:ProximityPrompt)
     print("FIRE - prox")
+    proximityprompt.MaxActivationDistance = 10000000
     fireproximityprompt(proximityprompt)
 end
 local plrs=game:GetService("Players")
