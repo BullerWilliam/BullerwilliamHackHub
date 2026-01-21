@@ -1,3 +1,8 @@
+local char = plr.Character or plr.CharacterAdded:Wait()
+plr.CharacterAdded:Connect(function(newchar)
+	char = newchar
+end)
+
 local function trigger(prox:ProximityPrompt, proxpos)
 	local settings2 = task.spawn(function()
 			while true do
@@ -9,19 +14,31 @@ local function trigger(prox:ProximityPrompt, proxpos)
 				task.wait()
 			end
 	end)
+    print("before cam")
 	game.Workspace.CurrentCamera.CameraType = Enum.CameraType.Scriptable
-	local pos = char:GetPivot()
-	char:PivotTo(CFrame.new(proxpos + Vector3.new(0, 2, 0)))
-	task.wait(0.1)
-	game.Workspace.CurrentCamera.CFrame = CFrame.lookAt(game.Workspace.CurrentCamera.CFrame.Position, parentpos)
-	task.wait(0.1)
-	prox:InputHoldBegin()
-	task.wait(0.1)
-	prox:InputHoldEnd()
-	task.wait(0.1)
-	char:PivotTo(pos)
-	game.Workspace.CurrentCamera.CameraType = Enum.CameraType.Custom
-	task.cancel(settings2)
+    if not char then
+        print("no char")
+    else
+        print("char")
+    end
+    if char then
+        if not char.PrimaryPart then
+            print("No primary")
+            char.PrimaryPart = char.HumanoidRootPart
+        end
+        local pos = char:GetPivot()
+    	char:PivotTo(CFrame.new(proxpos + Vector3.new(0, 2, 0)))
+    	task.wait(0.1)
+    	game.Workspace.CurrentCamera.CFrame = CFrame.lookAt(game.Workspace.CurrentCamera.CFrame.Position, parentpos)
+	    task.wait(0.1)
+    	prox:InputHoldBegin()
+    	task.wait(0.1)
+    	prox:InputHoldEnd()
+    	task.wait(0.1)
+        char:PivotTo(pos)
+        game.Workspace.CurrentCamera.CameraType = Enum.CameraType.Custom
+    	task.cancel(settings2)
+    end
 end
 
 FireClick = function(clickdetector:ClickDetector, clickpos)
