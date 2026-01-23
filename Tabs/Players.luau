@@ -1,3 +1,4 @@
+print("Players Log - start")
 Players_Tab = Window:Tab({
 	Title = "Players",
 	Icon = "users", -- optional
@@ -9,6 +10,7 @@ local function reviveplayer(plrtorevive)
         FireProx(body.PrimaryPart:FindFirstChild("ProximityAttachment"):FindFirstChild("ProximityInteraction"), body.PrimaryPart.CFrame)
     end
 end
+print("Players Log - loaded functions")
 local Players_Selected
 local Players_Dropdown = Players_Tab:Dropdown({
 	Title = "Players",
@@ -35,7 +37,7 @@ local Players_Button = Players_Tab:Button({
 task.spawn(function()
     while true do
         local Players_Plrnames = {}
-        for _, Players_plr in ipairs(game.Players:GetPlayers()) do
+        for _, Players_plr in ipairs(game:GetService("Players"):GetPlayers()) do
             table.insert(Players_Plrnames, Players_plr.Name)
         end
         Players_Dropdown:Refresh(Players_Plrnames)
