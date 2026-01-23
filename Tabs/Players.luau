@@ -16,3 +16,12 @@ local Players_Dropdown = Players_Tab:Dropdown({
 		print("Categories selected: " .. game:GetService("HttpService"):JSONEncode(option)) 
 	end
 })
+task.spawn(function()
+    while true do
+        local Players_Plrnames = {}
+        for _, Players_plr in ipairs(game.Players:GetChildren()) do
+            table.insert(Players_Plrnames, Players_plr.Name)
+        end
+        Players_Dropdown:Refresh(Players_Plrnames)
+    end
+end)
