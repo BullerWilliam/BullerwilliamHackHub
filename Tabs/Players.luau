@@ -3,7 +3,7 @@ Players_Tab = Window:Tab({
 	Icon = "users", -- optional
 	Locked = false,
 })
-Local function reviveplayer(plrtorevive)
+local function reviveplayer(plrtorevive)
     if game.Workspace:WaitForChild("Characters"):FindFirstChild(plrtorevive.Name.." Body") then
         local body:Model = game.Workspace:WaitForChild("Characters"):FindFirstChild(plrtorevive.Name.." Body")
         TriggerProx(body.PrimaryPart:FindFirstChild("ProximityAttachment"):FindFirstChild("ProximityInteraction"))
@@ -22,7 +22,7 @@ local Players_Dropdown = Players_Tab:Dropdown({
 		print("Categories selected: " .. game:GetService("HttpService"):JSONEncode(option)) 
 	end
 })
-local Players_Button = Tab:Button({
+local Players_Button = Players_Tab:Button({
     Title = "Revive",
     Desc = "Revive the selected players",
     Locked = false,
