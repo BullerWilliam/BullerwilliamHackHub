@@ -30,7 +30,7 @@ local Players_Button = Players_Tab:Button({
     Locked = false,
     Callback = function()
         for _, plrtorevive in ipairs(Players_Selected) do
-            reviveplayer(plrtorevive)
+            reviveplayer(game:GetService("Players"):FindFirstChild(plrtorevive))
         end
     end
 })

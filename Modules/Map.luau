@@ -64,7 +64,7 @@ end)
 task.spawn(function()
 	repeat
 		task.wait()
-	until mapholder:FindFirstChild("Map")
+	until mapholder:FindFirstChild("Map") and plr:HasTag("minimap")
 	local justmap = mapholder:FindFirstChild("Map")
 	local minimap = justmap:Clone()
 	minimap.Parent = interface
