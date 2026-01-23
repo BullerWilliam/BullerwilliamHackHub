@@ -1,4 +1,3 @@
-local LocalStorageService = game:GetService("LocalStorageService")
 Players_Tab = Window:Tab({
 	Title = "Players",
 	Icon = "users", -- optional
