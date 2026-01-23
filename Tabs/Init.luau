@@ -1,5 +1,5 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/BullerWilliam/BullerwilliamHackHub/refs/heads/main/Tabs/Kids.luau"))()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/BullerWilliam/BullerwilliamHackHub/refs/heads/main/Tabs/Players.luau"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/BullerWilliam/BullerwilliamHackHub/refs/heads/main/Tabs/Kids.luau"))()
 --[[
 local list2 = game:HttpGet("https://raw.githubusercontent.com/BullerWilliam/BullerwilliamHackHub/refs/heads/main/Tabs/All.txt")
 local https = game:GetService("HttpService")

@@ -5,7 +5,7 @@ Players_Tab = Window:Tab({
 })
 local function reviveplayer(plrtorevive)
     if game.Workspace:WaitForChild("Characters"):FindFirstChild(plrtorevive.Name.." Body") then
-        local body:Model = game.Workspace:WaitForChild("Characters"):FindFirstChild(plrtorevive.Name.." Body")
+        local body = game.Workspace:WaitForChild("Characters"):FindFirstChild(plrtorevive.Name.." Body")
         FireProx(body.PrimaryPart:FindFirstChild("ProximityAttachment"):FindFirstChild("ProximityInteraction"), body.PrimaryPart.CFrame)
     end
 end
