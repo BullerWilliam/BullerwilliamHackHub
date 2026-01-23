@@ -45,9 +45,9 @@ local function trigger(prox:ProximityPrompt, proxpos)
     	task.wait(0.1)
         char:PivotTo(pos)
         print("5")
-        game.Workspace.CurrentCamera.CameraType = beforetype
-    	task.cancel(settings2)
     end
+    game.Workspace.CurrentCamera.CameraType = beforetype
+    task.cancel(settings2)
 end
 
 FireClick = function(clickdetector:ClickDetector, clickpos)
