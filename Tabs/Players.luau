@@ -1,8 +1,15 @@
+local LocalStorageService = game:GetService("LocalStorageService")
 Players_Tab = Window:Tab({
 	Title = "Players",
 	Icon = "users", -- optional
 	Locked = false,
 })
+Local function reviveplayer(plrtorevive)
+    if game.Workspace:WaitForChild("Characters"):FindFirstChild(plrtorevive.Name.." Body") then
+        local body:Model = game.Workspace:WaitForChild("Characters"):FindFirstChild(plrtorevive.Name.." Body")
+        TriggerProx(body.PrimaryPart:FindFirstChild("ProximityAttachment"):FindFirstChild("ProximityInteraction"))
+    end
+end
 local Players_Selected
 local Players_Dropdown = Players_Tab:Dropdown({
 	Title = "Players",
@@ -15,6 +22,16 @@ local Players_Dropdown = Players_Tab:Dropdown({
 		Players_Selected = option
 		print("Categories selected: " .. game:GetService("HttpService"):JSONEncode(option)) 
 	end
+})
+local Players_Button = Tab:Button({
+    Title = "Revive",
+    Desc = "Revive the selected players",
+    Locked = false,
+    Callback = function()
+        for _, plrtorevive in ipairs(Players_Selected) do
+            reviveplayer(plrtorevive)
+        end
+    end
 })
 task.spawn(function()
     while true do
