@@ -58,7 +58,7 @@ end)
 task.spawn(function()
 	interface:WaitForChild("PartyDeadFrame"):WaitForChild("SubTitleLabel").Text = "you are so bad"
 	interface:WaitForChild("PartyGameLostFrame"):WaitForChild("SubLabel").Text = "ARE YOU ALL REALLY THIS BAD?"
-	interface:WaitForChild("DeadFrame"):WaitForChild("SubTitleLabel").Text = "you are so bad"
+	interface:WaitForChild("DeadFrame"):WaitForChild("TitleLabel").Text = "you are so bad"
 	interface:WaitForChild("GameLostFrame"):WaitForChild("SubLabel").Text = "ARE YOU ALL REALLY THIS BAD?"
 end)
 task.spawn(function()
