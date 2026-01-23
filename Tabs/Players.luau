@@ -6,7 +6,7 @@ Players_Tab = Window:Tab({
 local function reviveplayer(plrtorevive)
     if game.Workspace:WaitForChild("Characters"):FindFirstChild(plrtorevive.Name.." Body") then
         local body:Model = game.Workspace:WaitForChild("Characters"):FindFirstChild(plrtorevive.Name.." Body")
-        TriggerProx(body.PrimaryPart:FindFirstChild("ProximityAttachment"):FindFirstChild("ProximityInteraction"))
+        FireProx(body.PrimaryPart:FindFirstChild("ProximityAttachment"):FindFirstChild("ProximityInteraction"))
     end
 end
 local Players_Selected
@@ -26,7 +26,7 @@ local Players_Button = Players_Tab:Button({
     Title = "Revive",
     Desc = "Revive the selected players",
     Locked = false,
-    Callback = function()
+    Callback = function()w
         for _, plrtorevive in ipairs(Players_Selected) do
             reviveplayer(plrtorevive)
         end
