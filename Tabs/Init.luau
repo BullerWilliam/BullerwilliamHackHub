@@ -1,9 +1,6 @@
-task.spawn(function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/BullerWilliam/BullerwilliamHackHub/refs/heads/main/Tabs/Kids.luau"))()
-end)
-task.spawn(function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/BullerWilliam/BullerwilliamHackHub/refs/heads/main/Tabs/Players.luau"))()
-end)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/BullerWilliam/BullerwilliamHackHub/refs/heads/main/Tabs/Kids.luau"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/BullerWilliam/BullerwilliamHackHub/refs/heads/main/Tabs/Players.luau"))()
+
 --[[
 local list2 = game:HttpGet("https://raw.githubusercontent.com/BullerWilliam/BullerwilliamHackHub/refs/heads/main/Tabs/All.txt")
 local https = game:GetService("HttpService")
