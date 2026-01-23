@@ -35,7 +35,7 @@ local Players_Button = Players_Tab:Button({
 task.spawn(function()
     while true do
         local Players_Plrnames = {}
-        for _, Players_plr in ipairs(game.Players:GetChildren()) do
+        for _, Players_plr in ipairs(game.Players:GetPlayers()) do
             table.insert(Players_Plrnames, Players_plr.Name)
         end
         Players_Dropdown:Refresh(Players_Plrnames)
