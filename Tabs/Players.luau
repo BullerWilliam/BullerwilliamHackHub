@@ -41,6 +41,6 @@ task.spawn(function()
             table.insert(Players_Plrnames, Players_plr.Name)
         end
         Players_Dropdown:Refresh(Players_Plrnames)
-        task.wait()
+        task.wait(5)
     end
 end)
