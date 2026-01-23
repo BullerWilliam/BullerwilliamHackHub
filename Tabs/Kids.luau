@@ -4,7 +4,7 @@ Kid_Tab = Window:Tab({
 	Locked = false,
 })
 local Kid_Selectedkids
-local Dropdown = Kid_Tab:Dropdown({
+local Kid_Dropdown = Kid_Tab:Dropdown({
 	Title = "Kids",
 	Desc = "Kids to get",
 	Values = {"DinoKid", "KoalaKid", "KrakenKid", "SquidKid"},
@@ -16,7 +16,7 @@ local Dropdown = Kid_Tab:Dropdown({
 		print("Categories selected: " .. game:GetService("HttpService"):JSONEncode(option)) 
 	end
 })
-local Button = Kid_Tab:Button({
+local Kid_Button = Kid_Tab:Button({
 	Title = "Save children",
 	Desc = "Saves the selected children",
 	Locked = false,
