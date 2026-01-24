@@ -1,6 +1,6 @@
 Misc_Tab = Window:Tab({
 	Title = "Misc",
-	Icon = "users", -- optional
+	Icon = "wrench", -- optional
 	Locked = false,
 })
 local Misc_Minimap = Misc_Tab:Button({
