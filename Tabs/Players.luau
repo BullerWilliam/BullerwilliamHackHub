@@ -38,7 +38,9 @@ task.spawn(function()
     while true do
         local Players_Plrnames = {}
         for _, Players_plr in ipairs(game:GetService("Players"):GetPlayers()) do
-            table.insert(Players_Plrnames, Players_plr.Name)
+            if Players_plr.Name ~= game.Players.LocalPlayer.Name then
+                table.insert(Players_Plrnames, Players_plr.Name)
+            end
         end
         Players_Dropdown:Refresh(Players_Plrnames)
         task.wait(5)
