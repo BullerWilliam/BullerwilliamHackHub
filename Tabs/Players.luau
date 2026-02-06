@@ -7,9 +7,11 @@ Players_Tab = Window:Tab({
 local function reviveplayer(plrtorevive)
     if game.Workspace:WaitForChild("Characters"):FindFirstChild(plrtorevive.Name.." Body") then
         if hasrevivetool() then
+            print("has tool")
             local body = game.Workspace:WaitForChild("Characters"):FindFirstChild(plrtorevive.Name.." Body")
             FireProx(body.PrimaryPart:FindFirstChild("ProximityAttachment"):FindFirstChild("ProximityInteraction"), body.PrimaryPart.CFrame)
         else
+            print("has not tool")
             if GrabTool("Bandage") or GrabTool("MedKit") then
                 local body = game.Workspace:WaitForChild("Characters"):FindFirstChild(plrtorevive.Name.." Body")
                 FireProx(body.PrimaryPart:FindFirstChild("ProximityAttachment"):FindFirstChild("ProximityInteraction"), body.PrimaryPart.CFrame)
