@@ -59,7 +59,7 @@ GrabTool = function(name:string)
         local remoteevent:RemoteEvent = game.ReplicatedStorage:WaitForChild("RemoteEvents").RequestHotbarItem
         remoteevent:FireServer(tool)
         task.wait(0.1)
-        char:PivotTo(clickpos)
+        char:PivotTo(pos)
         return true
     else
         return false
