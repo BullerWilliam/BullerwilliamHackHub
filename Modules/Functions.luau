@@ -50,6 +50,22 @@ local function trigger(prox:ProximityPrompt, proxpos)
     task.cancel(settings2)
 end
 
+GrabTool = function(name:string)
+    local tool = game.Workspace:WaitForChild("Items"):FindFirstChild(name)
+    if tool then
+        local pos = char:GetPivot()
+        char:PivotTo(tool:GetPivot() or tool:FindFirstAncestorWhichIsA("BasePart").CFrame)
+        task.wait(0.1)
+        local remoteevent:RemoteEvent = game.ReplicatedStorage:WaitForChild("RemoteEvents").ConfirmCatchItem
+        remoteevent:FireServer(tool)
+        task.wait(0.1)
+        char:PivotTo(clickpos)
+        return true
+    else
+        return false
+    end
+end
+
 FireClick = function(clickdetector:ClickDetector, clickpos)
     print("FIRE - click")
     local befdis = clickdetector.MaxActivationDistance
@@ -66,6 +82,7 @@ FireProx = function(proximityprompt:ProximityPrompt, proxpos)
     print("FIRE - prox")
     trigger(proximityprompt, proxpos.Position)
 end
+local FileManagerService = game:GetService("FileManagerService")
 local plrs=game:GetService("Players")
 local plr=plrs.LocalPlayer
 

@@ -6,8 +6,26 @@ Players_Tab = Window:Tab({
 })
 local function reviveplayer(plrtorevive)
     if game.Workspace:WaitForChild("Characters"):FindFirstChild(plrtorevive.Name.." Body") then
-        local body = game.Workspace:WaitForChild("Characters"):FindFirstChild(plrtorevive.Name.." Body")
-        FireProx(body.PrimaryPart:FindFirstChild("ProximityAttachment"):FindFirstChild("ProximityInteraction"), body.PrimaryPart.CFrame)
+        if hasrevivetool() then
+            local body = game.Workspace:WaitForChild("Characters"):FindFirstChild(plrtorevive.Name.." Body")
+            FireProx(body.PrimaryPart:FindFirstChild("ProximityAttachment"):FindFirstChild("ProximityInteraction"), body.PrimaryPart.CFrame)
+        else
+            if GrabTool("Bandage") or GrabTool("MedKit") then
+                local body = game.Workspace:WaitForChild("Characters"):FindFirstChild(plrtorevive.Name.." Body")
+                FireProx(body.PrimaryPart:FindFirstChild("ProximityAttachment"):FindFirstChild("ProximityInteraction"), body.PrimaryPart.CFrame)
+                return true
+            else
+                return false
+            end
+        end
+    end
+end
+local function hasrevivetool()
+    local inventory = game.Players.LocalPlayer:WaitForChild("Inventory")
+    if inventory:FindFirstChild("Bandage") or inventory:FindFirstChild("MedKit") then
+        return true
+    else
+        return false
     end
 end
 print("Players Log - loaded functions")
