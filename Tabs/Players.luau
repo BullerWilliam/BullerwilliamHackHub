@@ -34,6 +34,24 @@ local Players_Button = Players_Tab:Button({
         end
     end
 })
+local Players_Auto = false
+local Players_Toggle = Players_Tab:Toggle({
+    Title = "Auto Revive",
+    Desc = "Automaticly revives the selected players",
+    Type = "Checkbox",
+    Value = false, -- default value
+    Callback = function(state) 
+        Players_Auto = state
+    end
+})
+task.spawn(function()
+    while true do
+        for _, plrtorevive in ipairs(Players_Selected) do
+            reviveplayer(game:GetService("Players"):FindFirstChild(plrtorevive))
+        end
+        task.wait(2)
+    end
+end)
 task.spawn(function()
     while true do
         local Players_Plrnames = {}
