@@ -56,7 +56,7 @@ GrabTool = function(name:string)
         local pos = char:GetPivot()
         char:PivotTo(tool:GetPivot() or tool:FindFirstAncestorWhichIsA("BasePart").CFrame)
         task.wait(0.1)
-        local remoteevent:RemoteEvent = game.ReplicatedStorage:WaitForChild("RemoteEvents").RequestConsumeItem
+        local remoteevent:RemoteEvent = game.ReplicatedStorage:WaitForChild("RemoteEvents").RequestHotbarItem
         remoteevent:FireServer(tool)
         task.wait(0.1)
         char:PivotTo(clickpos)
