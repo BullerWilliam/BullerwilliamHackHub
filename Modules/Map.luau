@@ -1,6 +1,6 @@
 local plr = game.Players.LocalPlayer
 local playergui = plr.PlayerGui
-local interface:Frame = playergui:WaitForChild("Interface")
+local interface:Frame = playergui.Interface
 local mapholder:Frame = interface.MapHolder
 local uis = game:GetService("UserInputService")
 local pointer:Frame = nil
@@ -63,12 +63,9 @@ task.spawn(function()
 end)
 task.spawn(function()
 	repeat
-		task.wait(1)
+		task.wait()
 	until mapholder:FindFirstChild("Map")
 	local justmap = mapholder:FindFirstChild("Map")
-	repeat
-		task.wait(2)
-	until plr:HasTag("minimap")
 	local minimap = justmap:Clone()
 	minimap.Parent = interface
 	minimap.Name = "Minimap"
@@ -117,7 +114,7 @@ task.spawn(function()
 end)
 task.spawn(function()
 	repeat
-		task.wait(2)
+		task.wait()
 	until mapholder:FindFirstChild("Map")
 	for _, icon in mapholder:FindFirstChild("Map"):FindFirstChild("Icons"):GetChildren() do
 		if icon:IsA("ImageLabel") then
@@ -126,16 +123,24 @@ task.spawn(function()
 	end
 end)
 task.spawn(function()
-	repeat
-		task.wait(2)
-	until not tpbutton
-	tpbutton = buildtpbutton(mapholder:WaitForChild("CloseButton"))
-	tpbutton.MouseButton1Click:Connect(function()
-	if pointer then
-		local times = 1390 * 2
-		local x = (pointer.Position.X.Scale - 0.5)
-		local y = (pointer.Position.Y.Scale - 0.5)
-		local char = plr.Character or plr.CharacterAdded:Wait()
-		char:PivotTo(CFrame.new(Vector3.new(x * times, 12, y * times)))
+	while true do
+		if not tpbutton then
+			tpbutton = buildtpbutton(mapholder:FindFirstChild("CloseButton"))
+			tpbutton.MouseButton1Click:Connect(function()
+				if pointer then
+					local times = 1390 * 2
+					local x = (pointer.Position.X.Scale - 0.5)
+					local y = (pointer.Position.Y.Scale - 0.5)
+					local char = plr.Character or plr.CharacterAdded:Wait()
+					char:PivotTo(CFrame.new(Vector3.new(x * times, 12, y * times)))
+				end
+			end)
+		end
+		task.wait()
 	end
 end)
+--while true do
+--	if mapholder:FindFirstChild("Map") then
+		
+--	end
+--end
