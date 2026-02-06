@@ -46,8 +46,10 @@ local Players_Toggle = Players_Tab:Toggle({
 })
 task.spawn(function()
     while true do
-        for _, plrtorevive in ipairs(Players_Selected) do
-            reviveplayer(game:GetService("Players"):FindFirstChild(plrtorevive))
+        if Players_Auto then
+            for _, plrtorevive in ipairs(Players_Selected) do
+                reviveplayer(game:GetService("Players"):FindFirstChild(plrtorevive))
+            end
         end
         task.wait(2)
     end
