@@ -18,6 +18,6 @@ local Misc_NoLeaving = Misc_Tab:Toggle({
     Type = "Checkbox",
     Value = false, -- default value
     Callback = function(state) 
-        game:GetService("CoreGui").RobloxGui.Enabled = state
+        game:GetService("CoreGui").RobloxGui.Enabled = not state
     end
 })
