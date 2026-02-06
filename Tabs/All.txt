@@ -1,1 +1,1 @@
-["Kids", "Players", "Misc", "Info"]
+["Kids", "Players", "Misc", "Info", "Scripts"]
