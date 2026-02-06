@@ -8,6 +8,7 @@ local Misc_Minimap = Misc_Tab:Button({
     Desc = "Cant disable again once enabled (May lag)",
     Locked = false,
     Callback = function()
+        Misc_Minimap:Lock()
         game.Players.LocalPlayer:AddTag("minimap")
     end
 })
