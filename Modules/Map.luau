@@ -1,6 +1,6 @@
 local plr = game.Players.LocalPlayer
 local playergui = plr.PlayerGui
-local interface:Frame = playergui.Interface
+local interface:Frame = playergui:WaitForChild("Interface")
 local mapholder:Frame = interface.MapHolder
 local uis = game:GetService("UserInputService")
 local pointer:Frame = nil
