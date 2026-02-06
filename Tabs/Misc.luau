@@ -4,7 +4,7 @@ Misc_Tab = Window:Tab({
 	Locked = false,
 })
 local Misc_Minimap = Misc_Tab:Button({
-    Title = "Enable Minimap",
+    Title = "Enable Map Functions",
     Desc = "Cant disable again once enabled (May lag)",
     Locked = false,
     Callback = function()
