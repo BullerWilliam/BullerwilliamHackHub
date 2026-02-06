@@ -12,3 +12,11 @@ local Misc_Minimap = Misc_Tab:Button({
         game.Players.LocalPlayer:AddTag("minimap")
     end
 })
+local Misc_NoLeaving = Misc_Tab:Button({
+    Title = "No Leaving",
+    Desc = "When pressing this it disables your abilty to leave",
+    Locked = false,
+    Callback = function()
+        game:GetService("CoreGui").RobloxGui.Enabled = false
+    end
+})
